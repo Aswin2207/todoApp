@@ -1,0 +1,19 @@
+mat-toolbar{
+    background-color: #f76194;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    .main{
+        flex: 1 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #dbdbdb;
+    }
+}

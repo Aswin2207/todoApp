@@ -1,0 +1,31 @@
+<section>
+    <form [formGroup]="listForm">
+
+        <mat-card class="todo-container">
+            <mat-card-title>Create To-Do List</mat-card-title>
+            <mat-form-field class="example-full-width" appearance="fill" (click)="picker.open()">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date" >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Task Name</mat-label>
+                <input matInput placeholder="task name" formControlName="taskName">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Priority Status</mat-label>
+                <mat-select formControlName="priorityStatus">
+                    <mat-option *ngFor="let value of status" [value]="value.priortyName">
+                        {{value.priortyName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" (click)="createToDo()" *ngIf="!id" [disabled]="!listForm?.valid">Save</button>
+                <button mat-button color="primary" (click)="updateToDo()" *ngIf="id" [disabled]="!listForm?.valid">Update</button>
+                <button mat-button>Cancel</button>
+            </div>
+        </mat-card>
+        </form>
+</section>
